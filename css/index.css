@@ -1,0 +1,138 @@
+body {
+  max-width: 100%;
+  margin: 0;
+  font-family: "Roboto";
+}
+.index {
+  background-color: #0c2c69;
+  color: white;
+  min-height: 100vh;
+}
+.enter {
+  text-align: center;
+}
+
+header img {
+  width: 100%;
+  margin: 0 0;
+}
+.asteriks {
+  color: red;
+}
+.indication {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.form {
+  margin: auto;
+  width: 90%;
+  background-color: white;
+  color: #626262;
+}
+form {
+  padding: 3rem 6rem;
+}
+.input-label {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.input-label label {
+  pointer-events: none;
+  font-size: 1.2rem;
+}
+/* .input-label:focus-within label {
+  transform: translate(0, 5px) scale(0.8);
+} */
+/* .input-label .filled {
+  transform: translate(0, 12px) scale(0.8);
+} */
+.checkbox {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.button {
+  background-color: #182a6a;
+  color: #ffff;
+  border: none;
+  border-radius: 0.3125rem;
+  transition: background-color 0.4s ease, border-color 0.4s ease;
+  font-size: 1rem;
+  font-weight: 400;
+  box-sizing: border-box;
+  height: 2.5rem;
+}
+.button:hover {
+  background-color: #0b6efd;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+}
+.text-input input {
+  width: 20rem;
+  border: 1px solid transparent;
+  font-size: 1.125rem;
+  background: 0 0;
+  background-color: rgba(235, 235, 235, 0.8);
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 5px;
+  margin: 10px 0;
+  height: 2.5rem;
+  border-radius: 0;
+  letter-spacing: 0;
+  text-decoration: none;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+}
+.header-links a {
+  color: #126bc5;
+  text-decoration: none;
+}
+
+/*footer Links */
+footer {
+  padding-top: 2rem;
+  color: #666;
+  text-align: center;
+  font-size: 3rem;
+  color: white;
+}
+footer img {
+  width: 100%;
+}
+
+@media (max-width: 1200px) {
+  .footer-links {
+    width: 90%;
+  }
+}
+@media (max-width: 500px) {
+  form {
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+  }
+  .form {
+    border-radius: 1rem;
+  }
+  .text-input input {
+    width: 80vw;
+  }
+  footer {
+    font-size: 1.5rem;
+  }
+  .button {
+    margin: 1.5rem 0;
+  }
+}

